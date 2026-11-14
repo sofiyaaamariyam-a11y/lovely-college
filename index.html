@@ -1,1248 +1,730 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Aurelia International College | Excellence Begins Here</title>
-
-    <meta name="description" content="Discover Aurelia International College. Explore our academic programmes, campus facilities and opportunities for a brighter future.">
-
-    <style>
-
-        /* =========================
-           GENERAL SETTINGS
-        ========================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Georgia, 'Times New Roman', serif;
-            background: #faf9f5;
-            color: #243b32;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img {
-            display: block;
-        }
-
-        /* =========================
-           NAVIGATION
-        ========================= */
-
-        header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 25px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-            color: white;
-        }
-
-        .logo {
-            font-size: 25px;
-            letter-spacing: 4px;
-            font-weight: bold;
-        }
-
-        .logo span {
-            display: block;
-            font-family: Arial, sans-serif;
-            font-size: 9px;
-            letter-spacing: 4px;
-            font-weight: normal;
-            text-align: center;
-            margin-top: 5px;
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
-        nav a {
-            font-family: Arial, sans-serif;
-            font-size: 11px;
-            letter-spacing: 1.5px;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: #d8b77a;
-        }
-
-        .nav-button {
-            border: 1px solid #d8b77a;
-            padding: 13px 22px;
-            color: white;
-        }
-
-        .menu-toggle {
-            display: none;
-            border: none;
-            background: none;
-            color: white;
-            font-size: 28px;
-            cursor: pointer;
-        }
-
-        /* =========================
-           HERO SECTION
-        ========================= */
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 140px 20px 100px;
-
-            background:
-                linear-gradient(
-                    rgba(13, 35, 28, 0.65),
-                    rgba(13, 35, 28, 0.55)
-                ),
-                url('https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=2000&q=85');
-
-            background-size: cover;
-            background-position: center;
-
-            color: white;
-        }
-
-        .hero-content {
-            max-width: 900px;
-        }
-
-        .hero-subtitle {
-            font-family: Arial, sans-serif;
-            font-size: 11px;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            color: #e3c58f;
-            margin-bottom: 30px;
-        }
-
-        .hero h1 {
-            font-size: clamp(48px, 8vw, 92px);
-            font-weight: normal;
-            line-height: 1.1;
-            margin-bottom: 25px;
-        }
-
-        .hero-description {
-            font-family: Arial, sans-serif;
-            font-size: 15px;
-            line-height: 2;
-            color: #eeeeea;
-            max-width: 650px;
-            margin: 0 auto 40px;
-        }
-
-        .primary-button {
-            display: inline-block;
-            background: #d8b77a;
-            color: #203b30;
-            padding: 17px 34px;
-            font-family: Arial, sans-serif;
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-
-        .primary-button:hover {
-            background: #ffffff;
-        }
-
-        /* =========================
-           GENERAL SECTIONS
-        ========================= */
-
-        section {
-            padding: 105px 9%;
-        }
-
-        .section-label {
-            font-family: Arial, sans-serif;
-            font-size: 10px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: #ae8951;
-            margin-bottom: 22px;
-        }
-
-        .section-heading {
-            font-size: clamp(34px, 5vw, 53px);
-            font-weight: normal;
-            line-height: 1.2;
-            margin-bottom: 25px;
-        }
-
-        .section-text {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            line-height: 2;
-            color: #737d75;
-        }
-
-        /* =========================
-           ABOUT SECTION
-        ========================= */
-
-        .about {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 75px;
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 530px;
-            object-fit: cover;
-        }
-
-        .about-content {
-            padding: 20px 0;
-        }
-
-        .text-link {
-            display: inline-block;
-            margin-top: 30px;
-            font-family: Arial, sans-serif;
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-bottom: 1px solid #ae8951;
-            padding-bottom: 9px;
-        }
-
-        /* =========================
-           STATISTICS SECTION
-        ========================= */
-
-        .statistics {
-            background: #203b30;
-            color: white;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            text-align: center;
-            gap: 25px;
-            padding: 65px 8%;
-        }
-
-        .stat h2 {
-            font-size: 42px;
-            font-weight: normal;
-            color: #e1c28a;
-            margin-bottom: 10px;
-        }
-
-        .stat p {
-            font-family: Arial, sans-serif;
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #d1dbd4;
-        }
-
-        /* =========================
-           ACADEMIC PROGRAMMES
-        ========================= */
-
-        .programmes {
-            background: #f0eee7;
-            text-align: center;
-        }
-
-        .programme-intro {
-            max-width: 680px;
-            margin: auto;
-        }
-
-        .programme-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin-top: 55px;
-        }
-
-        .programme-card {
-            background: #faf9f5;
-            padding: 45px 28px;
-            border-bottom: 2px solid transparent;
-            transition: 0.3s;
-        }
-
-        .programme-card:hover {
-            transform: translateY(-8px);
-            border-bottom: 2px solid #ae8951;
-        }
-
-        .programme-icon {
-            font-size: 34px;
-            margin-bottom: 25px;
-        }
-
-        .programme-card h3 {
-            font-size: 23px;
-            font-weight: normal;
-            margin-bottom: 17px;
-        }
-
-        .programme-card p {
-            font-family: Arial, sans-serif;
-            font-size: 13px;
-            line-height: 1.9;
-            color: #737d75;
-        }
-
-        /* =========================
-           WHY AURELIA
-        ========================= */
-
-        .why-us {
-            text-align: center;
-        }
-
-        .why-intro {
-            max-width: 700px;
-            margin: auto;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 35px;
-            margin-top: 65px;
-        }
-
-        .feature {
-            padding: 25px;
-        }
-
-        .feature-icon {
-            font-size: 32px;
-            margin-bottom: 22px;
-        }
-
-        .feature h3 {
-            font-size: 22px;
-            font-weight: normal;
-            margin-bottom: 15px;
-        }
-
-        .feature p {
-            font-family: Arial, sans-serif;
-            font-size: 13px;
-            line-height: 1.9;
-            color: #737d75;
-        }
-
-        /* =========================
-           CAMPUS SECTION
-        ========================= */
-
-        .campus {
-            background: #f0eee7;
-        }
-
-        .campus-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 55px;
-            align-items: center;
-        }
-
-        .campus-image img {
-            width: 100%;
-            height: 480px;
-            object-fit: cover;
-        }
-
-        .campus-content {
-            padding: 20px;
-        }
-
-        .campus-list {
-            margin-top: 25px;
-            list-style: none;
-            font-family: Arial, sans-serif;
-            font-size: 13px;
-            line-height: 3;
-            color: #65736b;
-        }
-
-        .campus-list li::before {
-            content: "✦";
-            color: #ae8951;
-            margin-right: 12px;
-        }
-
-        /* =========================
-           GALLERY
-        ========================= */
-
-        .gallery {
-            text-align: center;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-top: 45px;
-        }
-
-        .gallery-grid img {
-            width: 100%;
-            height: 330px;
-            object-fit: cover;
-            transition: 0.4s;
-        }
-
-        .gallery-grid img:hover {
-            opacity: 0.8;
-            transform: scale(1.01);
-        }
-
-        /* =========================
-           ADMISSIONS
-        ========================= */
-
-        .admissions {
-            text-align: center;
-            background:
-                linear-gradient(
-                    rgba(18, 46, 35, 0.85),
-                    rgba(18, 46, 35, 0.85)
-                ),
-                url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1800&q=85');
-
-            background-size: cover;
-            background-position: center;
-            color: white;
-        }
-
-        .admissions .section-label {
-            color: #e3c58f;
-        }
-
-        .admissions .section-text {
-            color: #dce4de;
-            max-width: 650px;
-            margin: 0 auto 35px;
-        }
-
-        /* =========================
-           CONTACT
-        ========================= */
-
-        .contact {
-            text-align: center;
-        }
-
-        .contact-content {
-            max-width: 700px;
-            margin: auto;
-        }
-
-        .contact-details {
-            margin: 30px 0;
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            line-height: 2.7;
-            color: #737d75;
-        }
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            background: #142a21;
-            color: white;
-            text-align: center;
-            padding: 50px 20px;
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-            line-height: 2;
-        }
-
-        footer h3 {
-            font-family: Georgia, serif;
-            font-size: 22px;
-            letter-spacing: 4px;
-            margin-bottom: 10px;
-        }
-
-        footer p {
-            color: #c1ccc3;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 25px;
-            margin: 25px 0;
-        }
-
-        .footer-links a:hover {
-            color: #e3c58f;
-        }
-
-        /* =========================
-           MOBILE RESPONSIVENESS
-        ========================= */
-
-        @media (max-width: 768px) {
-
-            header {
-                padding: 20px 6%;
-            }
-
-            .logo {
-                font-size: 20px;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            nav {
-                display: none;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: #203b30;
-                padding: 30px;
-                flex-direction: column;
-                gap: 25px;
-            }
-
-            nav.active {
-                display: flex;
-            }
-
-            .hero {
-                min-height: 85vh;
-            }
-
-            section {
-                padding: 75px 7%;
-            }
-
-            .about {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .about-image img {
-                height: 350px;
-            }
-
-            .statistics {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 40px 15px;
-            }
-
-            .stat h2 {
-                font-size: 34px;
-            }
-
-            .programme-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .features {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .campus-layout {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-
-            .campus-image img {
-                height: 330px;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery-grid img {
-                height: 280px;
-            }
-
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurelia International College</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --green: #173b32;
+  --dark: #102b25;
+  --gold: #bd9b62;
+  --cream: #f8f5ee;
+  --white: #ffffff;
+  --text: #343b36;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  background: var(--cream);
+  line-height: 1.7;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  background: var(--white);
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 15px #0000000a;
+}
+
+.logo {
+  color: var(--green);
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo span {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+nav a {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+.nav-button, .button {
+  background: var(--green);
+  color: white;
+  padding: 12px 22px;
+  display: inline-block;
+  font-size: 13px;
+  border: 1px solid var(--green);
+  transition: 0.3s;
+}
+
+.nav-button:hover, .button:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: none;
+  color: var(--green);
+  font-size: 27px;
+  cursor: pointer;
+}
+
+.hero {
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  padding: 80px 9%;
+  background:
+    linear-gradient(90deg, rgba(12,36,30,.88), rgba(12,36,30,.25)),
+    url('https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1800&q=85') center/cover;
+  color: white;
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.eyebrow {
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 6vw, 75px);
+  line-height: 1.12;
+  margin: 22px 0;
+}
+
+.hero p {
+  max-width: 520px;
+  margin-bottom: 30px;
+  color: #eee;
+}
+
+.hero .button {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+section {
+  padding: 85px 9%;
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 45px;
+}
+
+.section-heading h2 {
+  font-size: clamp(30px, 4vw, 43px);
+  color: var(--green);
+  margin: 12px 0;
+}
+
+.section-heading p {
+  color: #707770;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.about-image {
+  width: 100%;
+  height: 410px;
+  object-fit: cover;
+}
+
+.about-text h2 {
+  font-size: 39px;
+  color: var(--green);
+  margin: 15px 0;
+}
+
+.about-text p {
+  margin-bottom: 18px;
+  color: #69716a;
+}
+
+.stats {
+  background: var(--green);
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  gap: 25px;
+  padding: 45px 9%;
+}
+
+.stat h3 {
+  font-size: 38px;
+  color: var(--gold);
+}
+
+.stat p {
+  font-size: 13px;
+}
+
+.programmes {
+  background: #fff;
+}
+
+.programme-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.programme-card {
+  background: var(--cream);
+  padding: 32px;
+  border-bottom: 3px solid var(--gold);
+  transition: .3s;
+}
+
+.programme-card:hover {
+  transform: translateY(-7px);
+}
+
+.programme-card .number {
+  color: var(--gold);
+  font-size: 14px;
+  letter-spacing: 3px;
+}
+
+.programme-card h3 {
+  font-size: 24px;
+  color: var(--green);
+  margin: 15px 0;
+}
+
+.programme-card p {
+  color: #707770;
+  font-size: 14px;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+}
+
+.why-card {
+  padding: 25px 10px;
+}
+
+.why-card .symbol {
+  font-size: 30px;
+  color: var(--gold);
+}
+
+.why-card h3 {
+  font-size: 22px;
+  color: var(--green);
+  margin: 12px 0;
+}
+
+.why-card p {
+  color: #707770;
+  font-size: 14px;
+}
+
+.campus {
+  background: #fff;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 15px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.admissions {
+  background: var(--green);
+  color: white;
+  text-align: center;
+}
+
+.admissions h2 {
+  font-size: 42px;
+  margin: 15px 0;
+}
+
+.admissions p {
+  max-width: 650px;
+  margin: 0 auto 25px;
+  color: #e2e8e3;
+}
+
+.admissions .button {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.contact-info h2 {
+  color: var(--green);
+  font-size: 38px;
+  margin: 12px 0;
+}
+
+.contact-info p {
+  margin: 14px 0;
+  color: #68716a;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd9ce;
+  background: white;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.contact-form textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.contact-form button {
+  cursor: pointer;
+  width: fit-content;
+}
+
+footer {
+  background: var(--dark);
+  color: white;
+  padding: 45px 9%;
+  text-align: center;
+}
+
+footer .logo {
+  color: white;
+  margin-bottom: 15px;
+}
+
+footer p {
+  font-size: 13px;
+  color: #c5d0c9;
+  margin: 8px;
+}
+
+@media(max-width: 850px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 25px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .programme-grid,
+  .why-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 550px) {
+  section {
+    padding: 60px 7%;
+  }
+
+  .hero {
+    min-height: 550px;
+    padding: 60px 7%;
+  }
+
+  .programme-grid,
+  .why-grid,
+  .gallery,
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image {
+    height: 280px;
+  }
+
+  .gallery img {
+    height: 230px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
-
-    <header>
-
-        <a href="#home" class="logo">
-            AURELIA
-            <span>INTERNATIONAL COLLEGE</span>
-        </a>
-
-        <button class="menu-toggle"
-                onclick="toggleMenu()"
-                aria-label="Toggle navigation"
-                aria-expanded="false"
-                id="menuButton">
-
-            ☰
-
-        </button>
-
-        <nav id="navigation">
-
-            <a href="#home" onclick="closeMenu()">HOME</a>
-
-            <a href="#about" onclick="closeMenu()">ABOUT</a>
-
-            <a href="#programmes" onclick="closeMenu()">PROGRAMMES</a>
-
-            <a href="#campus" onclick="closeMenu()">CAMPUS</a>
-
-            <a href="#gallery" onclick="closeMenu()">GALLERY</a>
-
-            <a href="#contact" onclick="closeMenu()">CONTACT</a>
-
-            <a href="#admissions"
-               class="nav-button"
-               onclick="closeMenu()">
-
-                APPLY NOW
-
-            </a>
-
-        </nav>
-
-    </header>
-
-
-    <!-- HERO / HOMEPAGE -->
-
-    <section class="hero" id="home">
-
-        <div class="hero-content">
-
-            <p class="hero-subtitle">
-                Welcome to Aurelia International College
-            </p>
-
-            <h1>
-                A Legacy of<br>
-                Learning & Excellence
-            </h1>
-
-            <p class="hero-description">
-
-                Where ambition meets opportunity.
-                Discover an inspiring academic environment
-                designed to shape tomorrow's leaders.
-
-            </p>
-
-            <a href="#about" class="primary-button">
-                Discover Aurelia
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- ABOUT SECTION -->
-
-    <section class="about" id="about">
-
-        <div class="about-image">
-
-            <img
-                src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1000&q=85"
-                alt="Students enjoying college life">
-
-        </div>
-
-        <div class="about-content">
-
-            <p class="section-label">
-                Our Institution
-            </p>
-
-            <h2 class="section-heading">
-                Education That Inspires a Lifetime
-            </h2>
-
-            <p class="section-text">
-
-                Welcome to Aurelia International College,
-                an institution built around the belief that
-                education has the power to transform lives.
-
-                <br><br>
-
-                Our approach combines academic learning,
-                personal development and practical experiences
-                to help students reach their full potential.
-
-                <br><br>
-
-                We aim to create an environment where curiosity
-                is encouraged, ideas are valued and every student
-                is inspired to pursue excellence.
-
-            </p>
-
-            <a href="#programmes" class="text-link">
-                Explore Our Academic World →
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- STATISTICS -->
-
-    <section class="statistics">
-
-        <div class="stat">
-
-            <h2>15+</h2>
-
-            <p>Academic Programmes</p>
-
-        </div>
-
-        <div class="stat">
-
-            <h2>30+</h2>
-
-            <p>Expert Educators</p>
-
-        </div>
-
-        <div class="stat">
-
-            <h2>20+</h2>
-
-            <p>Student Activities</p>
-
-        </div>
-
-        <div class="stat">
-
-            <h2>100%</h2>
-
-            <p>Commitment to Learning</p>
-
-        </div>
-
-    </section>
-
-
-    <!-- ACADEMIC PROGRAMMES -->
-
-    <section class="programmes" id="programmes">
-
-        <div class="programme-intro">
-
-            <p class="section-label">
-                Academic Excellence
-            </p>
-
-            <h2 class="section-heading">
-                Discover Your Path
-            </h2>
-
-            <p class="section-text">
-
-                Explore a range of academic disciplines
-                designed to develop your knowledge,
-                strengthen your abilities and prepare
-                you for future opportunities.
-
-            </p>
-
-        </div>
-
-        <div class="programme-grid">
-
-            <div class="programme-card">
-
-                <div class="programme-icon">⚖️</div>
-
-                <h3>Business & Management</h3>
-
-                <p>
-
-                    Develop leadership, entrepreneurship
-                    and management skills for the
-                    modern business environment.
-
-                </p>
-
-            </div>
-
-            <div class="programme-card">
-
-                <div class="programme-icon">💻</div>
-
-                <h3>Computing & Technology</h3>
-
-                <p>
-
-                    Discover digital innovation,
-                    information systems and the
-                    future of technology.
-
-                </p>
-
-            </div>
-
-            <div class="programme-card">
-
-                <div class="programme-icon">📖</div>
-
-                <h3>Arts & Humanities</h3>
-
-                <p>
-
-                    Explore communication, creativity,
-                    culture and critical thinking
-                    through academic learning.
-
-                </p>
-
-            </div>
-
-            <div class="programme-card">
-
-                <div class="programme-icon">📊</div>
-
-                <h3>Accounting & Finance</h3>
-
-                <p>
-
-                    Build financial knowledge and
-                    analytical skills for professional
-                    opportunities.
-
-                </p>
-
-            </div>
-
-            <div class="programme-card">
-
-                <div class="programme-icon">🔬</div>
-
-                <h3>Science & Innovation</h3>
-
-                <p>
-
-                    Develop scientific understanding,
-                    research abilities and problem-solving
-                    skills.
-
-                </p>
-
-            </div>
-
-            <div class="programme-card">
-
-                <div class="programme-icon">🌍</div>
-
-                <h3>International Studies</h3>
-
-                <p>
-
-                    Gain a broader understanding of
-                    global affairs, society and
-                    international perspectives.
-
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- WHY CHOOSE AURELIA -->
-
-    <section class="why-us" id="why-us">
-
-        <div class="why-intro">
-
-            <p class="section-label">
-                The Aurelia Experience
-            </p>
-
-            <h2 class="section-heading">
-                An Education Beyond Expectations
-            </h2>
-
-            <p class="section-text">
-
-                We believe that an exceptional education
-                goes beyond the classroom. It is about
-                building confidence, discovering abilities
-                and preparing for a meaningful future.
-
-            </p>
-
-        </div>
-
-        <div class="features">
-
-            <div class="feature">
-
-                <div class="feature-icon">✦</div>
-
-                <h3>Academic Excellence</h3>
-
-                <p>
-
-                    An environment that encourages
-                    intellectual growth, curiosity
-                    and academic achievement.
-
-                </p>
-
-            </div>
-
-            <div class="feature">
-
-                <div class="feature-icon">♛</div>
-
-                <h3>Personal Development</h3>
-
-                <p>
-
-                    Opportunities to strengthen
-                    leadership, communication
-                    and individual confidence.
-
-                </p>
-
-            </div>
-
-            <div class="feature">
-
-                <div class="feature-icon">◇</div>
-
-                <h3>Future Opportunities</h3>
-
-                <p>
-
-                    Develop valuable knowledge
-                    and transferable skills for
-                    your professional journey.
-
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CAMPUS FACILITIES -->
-
-    <section class="campus" id="campus">
-
-        <div class="campus-layout">
-
-            <div class="campus-image">
-
-                <img
-                    src="https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1000&q=85"
-                    alt="Beautiful academic campus">
-
-            </div>
-
-            <div class="campus-content">
-
-                <p class="section-label">
-                    Life at Aurelia
-                </p>
-
-                <h2 class="section-heading">
-                    A Place to Learn and Belong
-                </h2>
-
-                <p class="section-text">
-
-                    Our campus is designed to encourage
-                    learning, creativity and meaningful
-                    connections.
-
-                    <br><br>
-
-                    From quiet study spaces to collaborative
-                    environments, every space contributes
-                    to a memorable student experience.
-
-                </p>
-
-                <ul class="campus-list">
-
-                    <li>Modern Learning Facilities</li>
-
-                    <li>Academic Library</li>
-
-                    <li>Collaborative Study Spaces</li>
-
-                    <li>Student Recreation Areas</li>
-
-                    <li>Academic Support Services</li>
-
-                </ul>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- GALLERY -->
-
-    <section class="gallery" id="gallery">
-
-        <p class="section-label">
-            Moments at Aurelia
-        </p>
-
-        <h2 class="section-heading">
-            Experience College Life
-        </h2>
-
-        <p class="section-text">
-
-            Every experience is an opportunity
-            to learn, connect and grow.
-
-        </p>
-
-        <div class="gallery-grid">
-
-            <img
-                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=85"
-                alt="Students studying together">
-
-            <img
-                src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=800&q=85"
-                alt="University library">
-
-            <img
-                src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=800&q=85"
-                alt="University graduation">
-
-        </div>
-
-    </section>
-
-
-    <!-- ADMISSIONS -->
-
-    <section class="admissions" id="admissions">
-
-        <p class="section-label">
-            Your Journey Begins Here
-        </p>
-
-        <h2 class="section-heading">
-            The Future Is Yours to Create
-        </h2>
-
-        <p class="section-text">
-
-            Take the first step towards your ambitions.
-            Discover our academic opportunities and
-            become part of the Aurelia community.
-
-        </p>
-
-        <a href="#contact" class="primary-button">
-            Begin Your Application
-        </a>
-
-    </section>
-
-
-    <!-- CONTACT -->
-
-    <section class="contact" id="contact">
-
-        <div class="contact-content">
-
-            <p class="section-label">
-                Connect With Us
-            </p>
-
-            <h2 class="section-heading">
-                We Are Here to Help
-            </h2>
-
-            <p class="section-text">
-
-                Have questions about admissions,
-                academic programmes or student life?
-                Our team would be delighted to assist you.
-
-            </p>
-
-            <div class="contact-details">
-
-                <p>📍 Aurelia Campus, Maldives</p>
-
-                <p>📞 +960 700 0000</p>
-
-                <p>✉️ info@aureliacollege.example</p>
-
-            </div>
-
-            <a href="mailto:info@aureliacollege.example"
-               class="primary-button">
-
-                Contact Our Team
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <h3>AURELIA</h3>
-
-        <p>INTERNATIONAL COLLEGE</p>
-
-        <p>Knowledge. Character. Excellence.</p>
-
-        <div class="footer-links">
-
-            <a href="#home">Home</a>
-
-            <a href="#about">About</a>
-
-            <a href="#programmes">Programmes</a>
-
-            <a href="#admissions">Admissions</a>
-
-            <a href="#contact">Contact</a>
-
-        </div>
-
-        <p>
-            © <span id="year"></span> Aurelia International College.
-            All rights reserved.
-        </p>
-
-    </footer>
-
-
-    <!-- JAVASCRIPT -->
-
-    <script>
-
-        // MOBILE NAVIGATION
-
-        function toggleMenu() {
-
-            const navigation =
-                document.getElementById("navigation");
-
-            const menuButton =
-                document.getElementById("menuButton");
-
-            navigation.classList.toggle("active");
-
-            const isOpen =
-                navigation.classList.contains("active");
-
-            menuButton.setAttribute(
-                "aria-expanded",
-                isOpen
-            );
-
-            menuButton.innerHTML =
-                isOpen ? "✕" : "☰";
-
-        }
-
-
-        // CLOSE MENU AFTER CLICKING A LINK
-
-        function closeMenu() {
-
-            const navigation =
-                document.getElementById("navigation");
-
-            const menuButton =
-                document.getElementById("menuButton");
-
-            navigation.classList.remove("active");
-
-            menuButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            menuButton.innerHTML = "☰";
-
-        }
-
-
-        // AUTOMATIC COPYRIGHT YEAR
-
-        document.getElementById("year").textContent =
-            new Date().getFullYear();
-
-    </script>
+<header>
+  <a href="#home" class="logo">
+    AURELIA
+    <span>International College</span>
+  </a>
+
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+
+  <nav id="navigation">
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#programmes">Programmes</a>
+    <a href="#why">Why Aurelia</a>
+    <a href="#campus">Campus</a>
+    <a href="#contact">Contact</a>
+    <a href="#admissions" class="nav-button">Apply Now</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="eyebrow">Welcome to Aurelia</span>
+    <h1>Discover Your Potential. Define Your Future.</h1>
+    <p>
+      An inspiring learning environment where ambition meets opportunity.
+      Build your knowledge, develop your skills and prepare for a brighter future.
+    </p>
+    <a href="#programmes" class="button">Explore Our Programmes</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-grid">
+    <img class="about-image"
+      src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1000&q=85"
+      alt="Students celebrating graduation">
+
+    <div class="about-text">
+      <span class="eyebrow">Our Story</span>
+      <h2>Education With Purpose and Excellence</h2>
+      <p>
+        Aurelia International College is a fictional higher education
+        institution created to inspire students to pursue academic and
+        professional excellence.
+      </p>
+      <p>
+        We believe education should go beyond textbooks. Our approach
+        encourages creativity, leadership, critical thinking and lifelong
+        learning.
+      </p>
+      <a href="#contact" class="button">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <h3>15+</h3>
+    <p>Academic Programmes</p>
+  </div>
+  <div class="stat">
+    <h3>1,200+</h3>
+    <p>Student Community</p>
+  </div>
+  <div class="stat">
+    <h3>95%</h3>
+    <p>Student Satisfaction Target</p>
+  </div>
+</div>
+
+<section class="programmes" id="programmes">
+  <div class="section-heading">
+    <span class="eyebrow">Academic Excellence</span>
+    <h2>Explore Our Programmes</h2>
+    <p>
+      Discover learning opportunities designed to prepare you
+      for the demands of a changing world.
+    </p>
+  </div>
+
+  <div class="programme-grid">
+    <div class="programme-card">
+      <span class="number">01 / BUSINESS</span>
+      <h3>Business Management</h3>
+      <p>
+        Develop knowledge in management, marketing, leadership,
+        entrepreneurship and business strategy.
+      </p>
+    </div>
+
+    <div class="programme-card">
+      <span class="number">02 / TECHNOLOGY</span>
+      <h3>Information Technology</h3>
+      <p>
+        Explore computing, programming, digital systems and
+        modern technology solutions.
+      </p>
+    </div>
+
+    <div class="programme-card">
+      <span class="number">03 / FINANCE</span>
+      <h3>Accounting and Finance</h3>
+      <p>
+        Build skills in financial reporting, accounting,
+        business finance and financial analysis.
+      </p>
+    </div>
+
+    <div class="programme-card">
+      <span class="number">04 / MARKETING</span>
+      <h3>Digital Marketing</h3>
+      <p>
+        Learn about branding, social media, online advertising
+        and electronic marketing strategies.
+      </p>
+    </div>
+
+    <div class="programme-card">
+      <span class="number">05 / LEADERSHIP</span>
+      <h3>Human Resource Management</h3>
+      <p>
+        Understand recruitment, employee development,
+        workplace relations and organisational behaviour.
+      </p>
+    </div>
+
+    <div class="programme-card">
+      <span class="number">06 / EDUCATION</span>
+      <h3>Education Studies</h3>
+      <p>
+        Explore teaching methods, learning theories,
+        educational leadership and student development.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="section-heading">
+    <span class="eyebrow">The Aurelia Experience</span>
+    <h2>Why Choose Aurelia?</h2>
+    <p>
+      We aim to create an environment where every student
+      can learn, grow and achieve.
+    </p>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="symbol">✧</div>
+      <h3>Quality Education</h3>
+      <p>
+        A learning experience focused on academic development
+        and practical knowledge.
+      </p>
+    </div>
+
+    <div class="why-card">
+      <div class="symbol">◇</div>
+      <h3>Personal Growth</h3>
+      <p>
+        Opportunities to strengthen confidence, communication
+        and leadership skills.
+      </p>
+    </div>
+
+    <div class="why-card">
+      <div class="symbol">✦</div>
+      <h3>Future Ready</h3>
+      <p>
+        Learning designed to help students prepare for
+        professional and personal success.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="campus" id="campus">
+  <div class="section-heading">
+    <span class="eyebrow">Life at Aurelia</span>
+    <h2>Explore Our Campus</h2>
+    <p>
+      A welcoming environment for learning, collaboration
+      and student experiences.
+    </p>
+  </div>
+
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=85" alt="University building">
+    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=85" alt="Students studying">
+    <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=800&q=85" alt="Library books">
+  </div>
+</section>
+
+<section class="admissions" id="admissions">
+  <span class="eyebrow">Your Journey Starts Here</span>
+  <h2>Take the First Step Towards Your Future</h2>
+  <p>
+    Explore your interests, discover your potential and
+    begin your educational journey with Aurelia International College.
+  </p>
+  <a href="#contact" class="button">Enquire About Admissions</a>
+</section>
+
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <span class="eyebrow">Get In Touch</span>
+      <h2>We Would Love to Hear From You</h2>
+      <p>
+        Have questions about our programmes or admissions?
+        Send us an enquiry and our team will be happy to assist.
+      </p>
+      <p><strong>Email:</strong> info@aureliacollege.example</p>
+      <p><strong>Location:</strong> Maldives</p>
+      <p><strong>Office Hours:</strong> Sunday – Thursday, 9 AM – 4 PM</p>
+    </div>
+
+    <form class="contact-form" id="contactForm">
+      <input type="text" id="name" placeholder="Your full name" required>
+      <input type="email" id="email" placeholder="Your email address" required>
+      <input type="text" id="subject" placeholder="Subject" required>
+      <textarea id="message" placeholder="Write your message..." required></textarea>
+      <button type="submit" class="button">Send Enquiry</button>
+      <p id="formMessage" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="logo">
+    AURELIA
+    <span>International College</span>
+  </div>
+  <p>Inspiring Excellence. Empowering Futures.</p>
+  <p>© <span id="year"></span> Aurelia International College. All rights reserved.</p>
+  <p>Academic information and figures on this demonstration website are fictional.</p>
+</footer>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const navigation = document.getElementById("navigation");
+
+menuToggle.addEventListener("click", function() {
+  navigation.classList.toggle("active");
+});
+
+document.querySelectorAll("#navigation a").forEach(function(link) {
+  link.addEventListener("click", function() {
+    navigation.classList.remove("active");
+  });
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const subject = document.getElementById("subject").value;
+  const message = document.getElementById("message").value;
+
+  const recipient = "info@aureliacollege.example";
+  const mailSubject = encodeURIComponent(subject);
+  const mailBody = encodeURIComponent(
+    "Name: " + name +
+    "\nEmail: " + email +
+    "\n\nMessage:\n" + message
+  );
+
+  document.getElementById("formMessage").textContent =
+    "Opening your email application to send the enquiry...";
+
+  window.location.href =
+    "mailto:" + recipient +
+    "?subject=" + mailSubject +
+    "&body=" + mailBody;
+});
+</script>
 
 </body>
-
 </html>
