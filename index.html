@@ -1,0 +1,851 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your College | Building Tomorrow</title>
+
+    <meta name="description" content="Discover our college, explore academic programmes and begin your journey towards a brighter future.">
+
+    <style>
+
+        /* GENERAL SETTINGS */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            color: #172b46;
+            background: #ffffff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVIGATION */
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+            color: white;
+        }
+
+        .logo {
+            font-size: 23px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        nav a {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: #e7bd66;
+        }
+
+        .admission-button {
+            border: 1px solid #e7bd66;
+            padding: 12px 20px;
+            color: #ffffff;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 27px;
+            cursor: pointer;
+        }
+
+        /* HERO SECTION */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 80px;
+
+            background:
+                linear-gradient(
+                    rgba(9, 25, 48, 0.72),
+                    rgba(9, 25, 48, 0.62)
+                ),
+                url('https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=2000&q=85');
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero .subtitle {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            color: #e7bd66;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 7vw, 85px);
+            font-weight: normal;
+            line-height: 1.15;
+            margin-bottom: 25px;
+        }
+
+        .hero-content p {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        .primary-button {
+            display: inline-block;
+            background: #d9ad58;
+            color: #172b46;
+            padding: 16px 32px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .primary-button:hover {
+            background: #ffffff;
+        }
+
+        /* GENERAL SECTIONS */
+
+        section {
+            padding: 100px 9%;
+        }
+
+        .section-label {
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #b18a42;
+            margin-bottom: 20px;
+        }
+
+        .section-heading {
+            font-size: clamp(32px, 5vw, 50px);
+            font-weight: normal;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        .section-text {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 2;
+            color: #687586;
+        }
+
+        /* ABOUT SECTION */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 65px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 470px;
+            object-fit: cover;
+        }
+
+        .about-content {
+            padding: 20px 0;
+        }
+
+        .text-link {
+            display: inline-block;
+            margin-top: 30px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #b18a42;
+            padding-bottom: 8px;
+        }
+
+        /* PROGRAMMES SECTION */
+
+        .programmes {
+            background: #f2f4f7;
+            text-align: center;
+        }
+
+        .programme-content {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .programme-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 55px;
+        }
+
+        .programme-card {
+            background: white;
+            padding: 40px 25px;
+            transition: 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .programme-card:hover {
+            transform: translateY(-8px);
+            border-bottom: 3px solid #d9ad58;
+        }
+
+        .programme-icon {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .programme-card h3 {
+            font-size: 21px;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+
+        .programme-card p {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            line-height: 1.8;
+            color: #687586;
+        }
+
+        /* WHY CHOOSE US */
+
+        .why-us {
+            text-align: center;
+        }
+
+        .why-content {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 55px;
+        }
+
+        .feature {
+            padding: 25px;
+        }
+
+        .feature .symbol {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            font-size: 21px;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+
+        .feature p {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            line-height: 1.8;
+            color: #687586;
+        }
+
+        /* GALLERY */
+
+        .gallery {
+            background: #f2f4f7;
+            text-align: center;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 45px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .gallery-grid img:hover {
+            opacity: 0.8;
+        }
+
+        /* ADMISSIONS */
+
+        .admissions {
+            text-align: center;
+            background: #172b46;
+            color: white;
+        }
+
+        .admissions .section-label {
+            color: #e7bd66;
+        }
+
+        .admissions .section-text {
+            color: #d4dce7;
+            max-width: 650px;
+            margin: 0 auto 30px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .contact-details {
+            margin-top: 30px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 2.5;
+            color: #687586;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #101e32;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            line-height: 2;
+        }
+
+        footer p {
+            color: #b7c2d0;
+        }
+
+        /* MOBILE RESPONSIVENESS */
+
+        @media (max-width: 768px) {
+
+            header {
+                padding: 20px 6%;
+            }
+
+            .logo {
+                font-size: 17px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: #172b46;
+                padding: 25px;
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .hero {
+                min-height: 85vh;
+            }
+
+            section {
+                padding: 70px 7%;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .about-image img {
+                height: 330px;
+            }
+
+            .programme-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid img {
+                height: 260px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header>
+
+        <a href="#home" class="logo">
+            YOUR COLLEGE
+        </a>
+
+        <button class="menu-toggle"
+                onclick="toggleMenu()"
+                aria-label="Toggle navigation">
+            ☰
+        </button>
+
+        <nav id="navigation">
+
+            <a href="#home" onclick="closeMenu()">HOME</a>
+
+            <a href="#about" onclick="closeMenu()">ABOUT</a>
+
+            <a href="#programmes" onclick="closeMenu()">PROGRAMMES</a>
+
+            <a href="#why-us" onclick="closeMenu()">WHY US</a>
+
+            <a href="#gallery" onclick="closeMenu()">CAMPUS</a>
+
+            <a href="#contact" onclick="closeMenu()">CONTACT</a>
+
+            <a href="#admissions" class="admission-button"
+               onclick="closeMenu()">ADMISSIONS</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- HERO SECTION -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="subtitle">
+                Welcome to Your College
+            </p>
+
+            <h1>
+                Shaping Minds.<br>
+                Building Futures.
+            </h1>
+
+            <p>
+                Discover your potential, develop your skills
+                and take the first step towards a brighter future
+                with us.
+            </p>
+
+            <a href="#about" class="primary-button">
+                Discover Our College
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT SECTION -->
+
+    <section class="about" id="about">
+
+        <div class="about-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1000&q=85"
+                alt="College students on campus">
+
+        </div>
+
+        <div class="about-content">
+
+            <p class="section-label">
+                About Our Institution
+            </p>
+
+            <h2 class="section-heading">
+                Inspiring Excellence Through Education
+            </h2>
+
+            <p class="section-text">
+                Welcome to Your College, where education,
+                innovation and personal development come together.
+
+                <br><br>
+
+                We are committed to providing students with
+                quality education, valuable experiences and
+                opportunities to achieve their ambitions.
+
+                <br><br>
+
+                Our goal is to prepare students for a successful
+                future by encouraging knowledge, creativity
+                and lifelong learning.
+            </p>
+
+            <a href="#programmes" class="text-link">
+                Explore Our Programmes →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROGRAMMES SECTION -->
+
+    <section class="programmes" id="programmes">
+
+        <div class="programme-content">
+
+            <p class="section-label">
+                Academic Opportunities
+            </p>
+
+            <h2 class="section-heading">
+                Explore Our Programmes
+            </h2>
+
+            <p class="section-text">
+                Discover opportunities to learn, grow and
+                prepare for your chosen career path.
+            </p>
+
+        </div>
+
+        <div class="programme-grid">
+
+            <div class="programme-card">
+
+                <div class="programme-icon">📊</div>
+
+                <h3>Business Studies</h3>
+
+                <p>
+                    Develop essential business knowledge,
+                    management skills and leadership abilities.
+                </p>
+
+            </div>
+
+            <div class="programme-card">
+
+                <div class="programme-icon">💻</div>
+
+                <h3>Information Technology</h3>
+
+                <p>
+                    Explore technology, digital innovation
+                    and the world of computing.
+                </p>
+
+            </div>
+
+            <div class="programme-card">
+
+                <div class="programme-icon">🎓</div>
+
+                <h3>Higher Education</h3>
+
+                <p>
+                    Expand your knowledge and build
+                    qualifications for future opportunities.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WHY CHOOSE US -->
+
+    <section class="why-us" id="why-us">
+
+        <div class="why-content">
+
+            <p class="section-label">
+                The College Advantage
+            </p>
+
+            <h2 class="section-heading">
+                Why Choose Our College?
+            </h2>
+
+            <p class="section-text">
+                We believe that every student deserves
+                the opportunity to succeed. Our learning
+                environment encourages growth, confidence
+                and achievement.
+            </p>
+
+        </div>
+
+        <div class="features">
+
+            <div class="feature">
+
+                <div class="symbol">📚</div>
+
+                <h3>Quality Education</h3>
+
+                <p>
+                    Learn through engaging academic
+                    programmes and meaningful experiences.
+                </p>
+
+            </div>
+
+            <div class="feature">
+
+                <div class="symbol">🌟</div>
+
+                <h3>Student Development</h3>
+
+                <p>
+                    Build confidence, communication skills
+                    and personal abilities.
+                </p>
+
+            </div>
+
+            <div class="feature">
+
+                <div class="symbol">🤝</div>
+
+                <h3>Supportive Community</h3>
+
+                <p>
+                    Become part of a welcoming community
+                    that encourages collaboration.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CAMPUS GALLERY -->
+
+    <section class="gallery" id="gallery">
+
+        <p class="section-label">
+            Life at Our College
+        </p>
+
+        <h2 class="section-heading">
+            Discover Our Campus
+        </h2>
+
+        <p class="section-text">
+            A place to learn, connect and create memories.
+        </p>
+
+        <div class="gallery-grid">
+
+            <img
+                src="https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=800&q=85"
+                alt="College campus">
+
+            <img
+                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=85"
+                alt="Students studying together">
+
+            <img
+                src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=800&q=85"
+                alt="College library">
+
+        </div>
+
+    </section>
+
+
+    <!-- ADMISSIONS -->
+
+    <section class="admissions" id="admissions">
+
+        <p class="section-label">
+            Begin Your Journey
+        </p>
+
+        <h2 class="section-heading">
+            Your Future Starts Here
+        </h2>
+
+        <p class="section-text">
+            Take the next step towards achieving your
+            academic and professional goals.
+            Explore our admission opportunities and
+            become part of our college community.
+        </p>
+
+        <a href="#contact" class="primary-button">
+            Contact Admissions
+        </a>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+
+        <div class="contact-content">
+
+            <p class="section-label">
+                Get In Touch
+            </p>
+
+            <h2 class="section-heading">
+                We'd Love to Hear From You
+            </h2>
+
+            <p class="section-text">
+                Have questions about our programmes,
+                admissions or student services?
+                Contact our team for more information.
+            </p>
+
+            <div class="contact-details">
+
+                <p>📍 College Address, Maldives</p>
+
+                <p>📞 +960 XXX XXXX</p>
+
+                <p>✉️ info@yourcollege.edu.mv</p>
+
+            </div>
+
+            <br>
+
+            <a href="mailto:info@yourcollege.edu.mv"
+               class="primary-button">
+                Email Us
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h3>YOUR COLLEGE</h3>
+
+        <p>Knowledge. Opportunity. Excellence.</p>
+
+        <br>
+
+        <p>
+            © 2026 Your College. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- MOBILE MENU FUNCTION -->
+
+    <script>
+
+        function toggleMenu() {
+
+            const navigation =
+                document.getElementById("navigation");
+
+            navigation.classList.toggle("active");
+
+        }
+
+        function closeMenu() {
+
+            const navigation =
+                document.getElementById("navigation");
+
+            navigation.classList.remove("active");
+
+        }
+
+    </script>
+
+</body>
+
+</html>
