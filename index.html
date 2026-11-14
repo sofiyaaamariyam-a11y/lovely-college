@@ -4,18 +4,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aurelia International College</title>
+<title>Sunway Ukulhas | Your Island Escape</title>
+<meta name="description" content="Discover Sunway Ukulhas, a welcoming island guesthouse in the Maldives. Explore comfortable rooms, ocean adventures and island experiences.">
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --green: #173b32;
-  --dark: #102b25;
-  --gold: #bd9b62;
-  --cream: #f8f5ee;
+  --navy: #123d43;
+  --deep: #0b3035;
+  --teal: #367d78;
+  --sand: #e9d8b9;
+  --cream: #faf7f0;
   --white: #ffffff;
-  --text: #343b36;
+  --text: #405153;
 }
 
 * {
@@ -27,8 +29,8 @@
 
 body {
   font-family: 'DM Sans', sans-serif;
-  color: var(--text);
   background: var(--cream);
+  color: var(--text);
   line-height: 1.7;
 }
 
@@ -42,22 +44,23 @@ a {
 }
 
 header {
-  background: var(--white);
-  padding: 18px 7%;
+  background: white;
+  padding: 17px 7%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 15px #0000000a;
+  box-shadow: 0 3px 15px #0000000a;
 }
 
 .logo {
-  color: var(--green);
+  color: var(--navy);
   font-family: 'Playfair Display', serif;
-  font-size: 24px;
+  font-size: 27px;
   font-weight: bold;
+  line-height: 1.2;
 }
 
 .logo span {
@@ -65,14 +68,14 @@ header {
   font-family: 'DM Sans', sans-serif;
   font-size: 9px;
   letter-spacing: 4px;
-  color: var(--gold);
+  color: var(--teal);
   text-transform: uppercase;
 }
 
 nav {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 24px;
 }
 
 nav a {
@@ -81,71 +84,73 @@ nav a {
 }
 
 nav a:hover {
-  color: var(--gold);
+  color: var(--teal);
 }
 
 .nav-button, .button {
-  background: var(--green);
-  color: white;
-  padding: 12px 22px;
   display: inline-block;
+  background: var(--navy);
+  color: white;
+  padding: 12px 24px;
+  border: 1px solid var(--navy);
   font-size: 13px;
-  border: 1px solid var(--green);
-  transition: 0.3s;
+  transition: .3s;
+  cursor: pointer;
 }
 
 .nav-button:hover, .button:hover {
-  background: var(--gold);
-  border-color: var(--gold);
+  background: var(--teal);
+  border-color: var(--teal);
 }
 
 .menu-toggle {
   display: none;
-  border: 0;
   background: none;
-  color: var(--green);
-  font-size: 27px;
+  border: 0;
+  font-size: 28px;
+  color: var(--navy);
   cursor: pointer;
 }
 
 .hero {
-  min-height: 620px;
+  min-height: 660px;
   display: flex;
   align-items: center;
-  padding: 80px 9%;
-  background:
-    linear-gradient(90deg, rgba(12,36,30,.88), rgba(12,36,30,.25)),
-    url('https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1800&q=85') center/cover;
+  padding: 90px 9%;
   color: white;
+  background:
+    linear-gradient(90deg, rgba(5,39,44,.78), rgba(5,39,44,.12)),
+    url('https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1800&q=85') center/cover;
 }
 
 .hero-content {
-  max-width: 650px;
+  max-width: 680px;
 }
 
 .eyebrow {
-  color: var(--gold);
-  letter-spacing: 4px;
-  font-size: 12px;
-  font-weight: bold;
+  color: #d9c49d;
   text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 11px;
+  font-weight: 700;
 }
 
 .hero h1 {
-  font-size: clamp(42px, 6vw, 75px);
-  line-height: 1.12;
+  font-size: clamp(43px, 6vw, 76px);
+  line-height: 1.1;
   margin: 22px 0;
 }
 
 .hero p {
   max-width: 520px;
   margin-bottom: 30px;
-  color: #eee;
+  color: #f4f4ef;
 }
 
 .hero .button {
-  background: var(--gold);
-  border-color: var(--gold);
+  background: var(--sand);
+  border-color: var(--sand);
+  color: var(--deep);
 }
 
 section {
@@ -159,175 +164,219 @@ section {
 }
 
 .section-heading h2 {
-  font-size: clamp(30px, 4vw, 43px);
-  color: var(--green);
+  color: var(--navy);
+  font-size: clamp(32px, 4vw, 45px);
   margin: 12px 0;
 }
 
 .section-heading p {
-  color: #707770;
+  color: #738080;
 }
 
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 55px;
   align-items: center;
+  gap: 55px;
 }
 
 .about-image {
   width: 100%;
-  height: 410px;
+  height: 420px;
   object-fit: cover;
 }
 
 .about-text h2 {
-  font-size: 39px;
-  color: var(--green);
-  margin: 15px 0;
+  font-size: 40px;
+  color: var(--navy);
+  margin: 14px 0;
 }
 
 .about-text p {
+  color: #718080;
   margin-bottom: 18px;
-  color: #69716a;
 }
 
-.stats {
-  background: var(--green);
-  color: white;
+.rooms {
+  background: white;
+}
+
+.card-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  text-align: center;
-  gap: 25px;
-  padding: 45px 9%;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
 }
 
-.stat h3 {
-  font-size: 38px;
-  color: var(--gold);
-}
-
-.stat p {
-  font-size: 13px;
-}
-
-.programmes {
-  background: #fff;
-}
-
-.programme-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.programme-card {
+.card {
   background: var(--cream);
-  padding: 32px;
-  border-bottom: 3px solid var(--gold);
+  overflow: hidden;
   transition: .3s;
 }
 
-.programme-card:hover {
-  transform: translateY(-7px);
+.card:hover {
+  transform: translateY(-5px);
 }
 
-.programme-card .number {
-  color: var(--gold);
+.card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 27px;
+}
+
+.card-content h3 {
+  color: var(--navy);
+  font-size: 25px;
+  margin: 8px 0;
+}
+
+.card-content p {
+  color: #718080;
   font-size: 14px;
-  letter-spacing: 3px;
+  margin-bottom: 18px;
 }
 
-.programme-card h3 {
-  font-size: 24px;
-  color: var(--green);
+.small-label {
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.activities {
+  background: #f0eee5;
+}
+
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.activity-card {
+  background: white;
+  padding-bottom: 22px;
+}
+
+.activity-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.activity-card div {
+  padding: 20px;
+}
+
+.activity-card h3 {
+  font-size: 22px;
+  color: var(--navy);
+  margin-bottom: 9px;
+}
+
+.activity-card p {
+  color: #718080;
+  font-size: 13px;
+}
+
+.transport {
+  background: var(--navy);
+  color: white;
+}
+
+.transport .section-heading h2 {
+  color: white;
+}
+
+.transport .section-heading p {
+  color: #d1e0df;
+}
+
+.transport-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.transport-card {
+  background: white;
+  color: var(--text);
+  padding: 32px;
+}
+
+.transport-card h3 {
+  font-size: 26px;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.transport-card .price {
+  color: var(--teal);
+  font-size: 25px;
+  font-weight: bold;
   margin: 15px 0;
 }
 
-.programme-card p {
-  color: #707770;
+.transport-card p {
   font-size: 14px;
-}
-
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 35px;
-}
-
-.why-card {
-  padding: 25px 10px;
-}
-
-.why-card .symbol {
-  font-size: 30px;
-  color: var(--gold);
-}
-
-.why-card h3 {
-  font-size: 22px;
-  color: var(--green);
-  margin: 12px 0;
-}
-
-.why-card p {
-  color: #707770;
-  font-size: 14px;
-}
-
-.campus {
-  background: #fff;
+  margin-bottom: 10px;
 }
 
 .gallery {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
 }
 
 .gallery img {
   width: 100%;
-  height: 260px;
+  height: 250px;
   object-fit: cover;
 }
 
-.admissions {
-  background: var(--green);
-  color: white;
+.cta {
   text-align: center;
+  background:
+    linear-gradient(rgba(7,49,53,.8), rgba(7,49,53,.8)),
+    url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=85') center/cover;
+  color: white;
 }
 
-.admissions h2 {
-  font-size: 42px;
+.cta h2 {
+  font-size: clamp(32px, 4vw, 45px);
   margin: 15px 0;
 }
 
-.admissions p {
-  max-width: 650px;
+.cta p {
+  max-width: 600px;
   margin: 0 auto 25px;
-  color: #e2e8e3;
 }
 
-.admissions .button {
-  background: var(--gold);
-  border-color: var(--gold);
+.cta .button {
+  background: var(--sand);
+  border-color: var(--sand);
+  color: var(--deep);
 }
 
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 50px;
+  gap: 55px;
 }
 
 .contact-info h2 {
-  color: var(--green);
   font-size: 38px;
+  color: var(--navy);
   margin: 12px 0;
 }
 
 .contact-info p {
-  margin: 14px 0;
-  color: #68716a;
+  color: #718080;
+  margin: 15px 0;
 }
 
 .contact-form {
@@ -338,9 +387,9 @@ section {
 
 .contact-form input,
 .contact-form textarea {
-  width: 100%;
   padding: 15px;
-  border: 1px solid #ddd9ce;
+  width: 100%;
+  border: 1px solid #d9ddd7;
   background: white;
   font-family: inherit;
   font-size: 14px;
@@ -352,15 +401,14 @@ section {
 }
 
 .contact-form button {
-  cursor: pointer;
   width: fit-content;
 }
 
 footer {
-  background: var(--dark);
+  background: var(--deep);
   color: white;
-  padding: 45px 9%;
   text-align: center;
+  padding: 45px 8%;
 }
 
 footer .logo {
@@ -370,8 +418,8 @@ footer .logo {
 
 footer p {
   font-size: 13px;
-  color: #c5d0c9;
-  margin: 8px;
+  color: #d0dedb;
+  margin: 7px;
 }
 
 @media(max-width: 850px) {
@@ -385,28 +433,21 @@ footer p {
     top: 75px;
     left: 0;
     width: 100%;
-    background: white;
     padding: 25px;
+    background: white;
     flex-direction: column;
     align-items: flex-start;
-    gap: 18px;
   }
 
   nav.active {
     display: flex;
   }
 
-  .about-grid,
-  .contact-grid {
+  .about-grid, .contact-grid {
     grid-template-columns: 1fr;
   }
 
-  .programme-grid,
-  .why-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .gallery {
+  .activity-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -417,23 +458,17 @@ footer p {
   }
 
   .hero {
-    min-height: 550px;
+    min-height: 540px;
     padding: 60px 7%;
   }
 
-  .programme-grid,
-  .why-grid,
-  .gallery,
-  .stats {
+  .card-grid, .activity-grid,
+  .transport-grid, .gallery {
     grid-template-columns: 1fr;
   }
 
   .about-image {
     height: 280px;
-  }
-
-  .gallery img {
-    height: 230px;
   }
 }
 </style>
@@ -443,20 +478,19 @@ footer p {
 
 <header>
   <a href="#home" class="logo">
-    AURELIA
-    <span>International College</span>
+    SUNWAY
+    <span>UKULHAS · MALDIVES</span>
   </a>
 
-  <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
 
   <nav id="navigation">
     <a href="#home">Home</a>
-    <a href="#about">About Us</a>
-    <a href="#programmes">Programmes</a>
-    <a href="#why">Why Aurelia</a>
-    <a href="#campus">Campus</a>
-    <a href="#contact">Contact</a>
-    <a href="#admissions" class="nav-button">Apply Now</a>
+    <a href="#about">About</a>
+    <a href="#rooms">Rooms</a>
+    <a href="#activities">Activities</a>
+    <a href="#transport">Transport</a>
+    <a href="#contact" class="nav-button">Enquire Now</a>
   </nav>
 </header>
 
@@ -464,209 +498,215 @@ footer p {
 
 <section class="hero" id="home">
   <div class="hero-content">
-    <span class="eyebrow">Welcome to Aurelia</span>
-    <h1>Discover Your Potential. Define Your Future.</h1>
+    <span class="eyebrow">Your Island Escape Awaits</span>
+    <h1>Discover the Beauty of Ukulhas</h1>
     <p>
-      An inspiring learning environment where ambition meets opportunity.
-      Build your knowledge, develop your skills and prepare for a brighter future.
+      Experience the beauty of island life at Sunway Ukulhas.
+      Relax in comfortable accommodation, explore turquoise
+      waters and enjoy the warmth of Maldivian hospitality.
     </p>
-    <a href="#programmes" class="button">Explore Our Programmes</a>
+    <a href="#rooms" class="button">Discover Our Rooms</a>
   </div>
 </section>
 
 <section id="about">
   <div class="about-grid">
     <img class="about-image"
-      src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1000&q=85"
-      alt="Students celebrating graduation">
+      src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=85"
+      alt="Beautiful tropical beach">
 
     <div class="about-text">
-      <span class="eyebrow">Our Story</span>
-      <h2>Education With Purpose and Excellence</h2>
+      <span class="eyebrow">Welcome to Sunway</span>
+      <h2>A Relaxing Stay in the Heart of the Maldives</h2>
       <p>
-        Aurelia International College is a fictional higher education
-        institution created to inspire students to pursue academic and
-        professional excellence.
+        Sunway Ukulhas is a welcoming guesthouse located on
+        the beautiful local island of Ukulhas in the Maldives.
       </p>
       <p>
-        We believe education should go beyond textbooks. Our approach
-        encourages creativity, leadership, critical thinking and lifelong
-        learning.
+        Designed for comfort and relaxation, the guesthouse
+        offers well-appointed accommodation, thoughtful amenities
+        and warm Maldivian hospitality.
       </p>
-      <a href="#contact" class="button">Learn More</a>
+      <p>
+        Whether travelling as a couple, family or solo explorer,
+        discover an island experience filled with beautiful
+        beaches, ocean adventures and local culture.
+      </p>
+      <a href="#contact" class="button">Contact Us</a>
     </div>
   </div>
 </section>
 
-<div class="stats">
-  <div class="stat">
-    <h3>15+</h3>
-    <p>Academic Programmes</p>
-  </div>
-  <div class="stat">
-    <h3>1,200+</h3>
-    <p>Student Community</p>
-  </div>
-  <div class="stat">
-    <h3>95%</h3>
-    <p>Student Satisfaction Target</p>
-  </div>
-</div>
-
-<section class="programmes" id="programmes">
+<section class="rooms" id="rooms">
   <div class="section-heading">
-    <span class="eyebrow">Academic Excellence</span>
-    <h2>Explore Our Programmes</h2>
+    <span class="eyebrow">Stay With Us</span>
+    <h2>Our Rooms</h2>
     <p>
-      Discover learning opportunities designed to prepare you
-      for the demands of a changing world.
+      Find a comfortable place to relax after a day
+      discovering the beautiful island of Ukulhas.
     </p>
   </div>
 
-  <div class="programme-grid">
-    <div class="programme-card">
-      <span class="number">01 / BUSINESS</span>
-      <h3>Business Management</h3>
-      <p>
-        Develop knowledge in management, marketing, leadership,
-        entrepreneurship and business strategy.
-      </p>
+  <div class="card-grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1000&q=85" alt="Elegant family guest room">
+      <div class="card-content">
+        <span class="small-label">For Families</span>
+        <h3>Deluxe Family Room</h3>
+        <p>
+          A spacious retreat designed for families seeking
+          comfort, relaxation and an enjoyable island stay.
+        </p>
+        <a class="button" href="#contact">Enquire About This Room</a>
+      </div>
     </div>
 
-    <div class="programme-card">
-      <span class="number">02 / TECHNOLOGY</span>
-      <h3>Information Technology</h3>
-      <p>
-        Explore computing, programming, digital systems and
-        modern technology solutions.
-      </p>
-    </div>
-
-    <div class="programme-card">
-      <span class="number">03 / FINANCE</span>
-      <h3>Accounting and Finance</h3>
-      <p>
-        Build skills in financial reporting, accounting,
-        business finance and financial analysis.
-      </p>
-    </div>
-
-    <div class="programme-card">
-      <span class="number">04 / MARKETING</span>
-      <h3>Digital Marketing</h3>
-      <p>
-        Learn about branding, social media, online advertising
-        and electronic marketing strategies.
-      </p>
-    </div>
-
-    <div class="programme-card">
-      <span class="number">05 / LEADERSHIP</span>
-      <h3>Human Resource Management</h3>
-      <p>
-        Understand recruitment, employee development,
-        workplace relations and organisational behaviour.
-      </p>
-    </div>
-
-    <div class="programme-card">
-      <span class="number">06 / EDUCATION</span>
-      <h3>Education Studies</h3>
-      <p>
-        Explore teaching methods, learning theories,
-        educational leadership and student development.
-      </p>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1000&q=85" alt="Comfortable double guest room">
+      <div class="card-content">
+        <span class="small-label">For Couples and Solo Travellers</span>
+        <h3>Deluxe Double / Twin Room</h3>
+        <p>
+          A relaxing room for couples or solo travellers,
+          combining comfortable interiors with modern amenities.
+        </p>
+        <a class="button" href="#contact">Enquire About This Room</a>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="why">
+<section class="activities" id="activities">
   <div class="section-heading">
-    <span class="eyebrow">The Aurelia Experience</span>
-    <h2>Why Choose Aurelia?</h2>
+    <span class="eyebrow">Explore the Ocean</span>
+    <h2>Featured Activities</h2>
     <p>
-      We aim to create an environment where every student
-      can learn, grow and achieve.
+      Discover unforgettable experiences in the beautiful
+      waters surrounding the Maldives.
     </p>
   </div>
 
-  <div class="why-grid">
-    <div class="why-card">
-      <div class="symbol">✧</div>
-      <h3>Quality Education</h3>
-      <p>
-        A learning experience focused on academic development
-        and practical knowledge.
-      </p>
+  <div class="activity-grid">
+    <div class="activity-card">
+      <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=85" alt="Snorkelling in tropical ocean">
+      <div>
+        <h3>Swim with Manta Rays</h3>
+        <p>
+          Experience an exciting ocean adventure and observe
+          these graceful marine animals in their natural habitat.
+        </p>
+      </div>
     </div>
 
-    <div class="why-card">
-      <div class="symbol">◇</div>
-      <h3>Personal Growth</h3>
-      <p>
-        Opportunities to strengthen confidence, communication
-        and leadership skills.
-      </p>
+    <div class="activity-card">
+      <img src="https://images.unsplash.com/photo-1560275619-4662e36fa65c?auto=format&fit=crop&w=800&q=85" alt="Underwater marine life">
+      <div>
+        <h3>Swim with Nurse Sharks</h3>
+        <p>
+          Discover the fascinating marine life of the Maldives
+          during a memorable guided ocean experience.
+        </p>
+      </div>
     </div>
 
-    <div class="why-card">
-      <div class="symbol">✦</div>
-      <h3>Future Ready</h3>
-      <p>
-        Learning designed to help students prepare for
-        professional and personal success.
-      </p>
+    <div class="activity-card">
+      <img src="https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&fit=crop&w=800&q=85" alt="Whale shark underwater">
+      <div>
+        <h3>Whale Shark Expedition</h3>
+        <p>
+          Join an ocean adventure in search of the world's
+          largest fish and experience the beauty of marine life.
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="campus" id="campus">
+<section class="transport" id="transport">
   <div class="section-heading">
-    <span class="eyebrow">Life at Aurelia</span>
-    <h2>Explore Our Campus</h2>
+    <span class="eyebrow">Getting Here</span>
+    <h2>Travel to Ukulhas</h2>
     <p>
-      A welcoming environment for learning, collaboration
-      and student experiences.
+      Choose the transport option that best suits
+      your travel schedule and budget.
+    </p>
+  </div>
+
+  <div class="transport-grid">
+    <div class="transport-card">
+      <h3>Speedboat Transfer</h3>
+      <p>Estimated journey: 1 hour 30 minutes</p>
+      <div class="price">$50 per person / one way</div>
+      <p>A faster and more convenient transfer option.</p>
+      <a class="button" href="#contact">Ask About Speedboats</a>
+    </div>
+
+    <div class="transport-card">
+      <h3>Local Ferry</h3>
+      <p>Estimated journey: 4+ hours</p>
+      <div class="price">$5 per person / one way</div>
+      <p>A budget-friendly way to experience local island travel.</p>
+      <a class="button" href="#contact">Ask About Ferry Travel</a>
+    </div>
+  </div>
+  <p style="text-align:center;margin-top:25px;font-size:12px;color:#d1e0df;">
+    Transfer fares and schedules are published information and
+    should be confirmed with the guesthouse before travelling.
+  </p>
+</section>
+
+<section id="gallery">
+  <div class="section-heading">
+    <span class="eyebrow">Island Moments</span>
+    <h2>Explore the Maldives</h2>
+    <p>
+      Beautiful beaches, tropical surroundings and
+      unforgettable ocean experiences.
     </p>
   </div>
 
   <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=85" alt="University building">
-    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=85" alt="Students studying">
-    <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=800&q=85" alt="Library books">
+    <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=800&q=85" alt="Tropical island">
+    <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=800&q=85" alt="Ocean waves">
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=85" alt="White sandy beach">
   </div>
 </section>
 
-<section class="admissions" id="admissions">
-  <span class="eyebrow">Your Journey Starts Here</span>
-  <h2>Take the First Step Towards Your Future</h2>
+<section class="cta">
+  <span class="eyebrow">Start Planning Your Escape</span>
+  <h2>Your Island Adventure Begins Here</h2>
   <p>
-    Explore your interests, discover your potential and
-    begin your educational journey with Aurelia International College.
+    From comfortable accommodation to unforgettable ocean
+    experiences, let us help you plan your stay in Ukulhas.
   </p>
-  <a href="#contact" class="button">Enquire About Admissions</a>
+  <a href="#contact" class="button">Make an Enquiry</a>
 </section>
 
 <section id="contact">
   <div class="contact-grid">
     <div class="contact-info">
-      <span class="eyebrow">Get In Touch</span>
-      <h2>We Would Love to Hear From You</h2>
+      <span class="eyebrow">Get in Touch</span>
+      <h2>Let's Plan Your Stay</h2>
       <p>
-        Have questions about our programmes or admissions?
-        Send us an enquiry and our team will be happy to assist.
+        Have questions about accommodation, activities
+        or transfers? Contact Sunway Ukulhas for assistance.
       </p>
-      <p><strong>Email:</strong> info@aureliacollege.example</p>
-      <p><strong>Location:</strong> Maldives</p>
-      <p><strong>Office Hours:</strong> Sunday – Thursday, 9 AM – 4 PM</p>
+      <p><strong>Phone:</strong> +960 7716804</p>
+      <p><strong>Email:</strong> sunwayukulhas@gmail.com</p>
+      <p><strong>Location:</strong> Ukulhas Island, Maldives</p>
+      <p>
+        <strong>Official Website:</strong>
+        <a href="https://www.sunwayukulhas.com/" target="_blank" rel="noopener">sunwayukulhas.com</a>
+      </p>
     </div>
 
     <form class="contact-form" id="contactForm">
       <input type="text" id="name" placeholder="Your full name" required>
       <input type="email" id="email" placeholder="Your email address" required>
-      <input type="text" id="subject" placeholder="Subject" required>
-      <textarea id="message" placeholder="Write your message..." required></textarea>
-      <button type="submit" class="button">Send Enquiry</button>
+      <input type="date" id="arrival" aria-label="Arrival date">
+      <input type="date" id="departure" aria-label="Departure date">
+      <textarea id="message" placeholder="Tell us about your enquiry..." required></textarea>
+      <button class="button" type="submit">Send Enquiry</button>
       <p id="formMessage" aria-live="polite"></p>
     </form>
   </div>
@@ -676,12 +716,13 @@ footer p {
 
 <footer>
   <div class="logo">
-    AURELIA
-    <span>International College</span>
+    SUNWAY
+    <span>UKULHAS · MALDIVES</span>
   </div>
-  <p>Inspiring Excellence. Empowering Futures.</p>
-  <p>© <span id="year"></span> Aurelia International College. All rights reserved.</p>
-  <p>Academic information and figures on this demonstration website are fictional.</p>
+  <p>Your Island Escape Awaits.</p>
+  <p>Ukulhas Island, Maldives</p>
+  <p>© <span id="year"></span> Sunway Ukulhas - Student Project Website</p>
+  <p>This is a student marketing project demonstration, not the official booking website.</p>
 </footer>
 
 <script>
@@ -705,24 +746,26 @@ document.getElementById("contactForm").addEventListener("submit", function(event
 
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
-  const subject = document.getElementById("subject").value;
+  const arrival = document.getElementById("arrival").value;
+  const departure = document.getElementById("departure").value;
   const message = document.getElementById("message").value;
 
-  const recipient = "info@aureliacollege.example";
-  const mailSubject = encodeURIComponent(subject);
-  const mailBody = encodeURIComponent(
+  const subject = encodeURIComponent("Website enquiry from " + name);
+
+  const body = encodeURIComponent(
     "Name: " + name +
     "\nEmail: " + email +
-    "\n\nMessage:\n" + message
+    "\nArrival date: " + arrival +
+    "\nDeparture date: " + departure +
+    "\n\nEnquiry: " + message
   );
 
   document.getElementById("formMessage").textContent =
-    "Opening your email application to send the enquiry...";
+    "Opening your email application...";
 
   window.location.href =
-    "mailto:" + recipient +
-    "?subject=" + mailSubject +
-    "&body=" + mailBody;
+    "mailto:sunwayukulhas@gmail.com?subject=" + subject +
+    "&body=" + body;
 });
 </script>
 
